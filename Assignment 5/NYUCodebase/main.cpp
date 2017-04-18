@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
             e1.velocity_x = 0;
             e1.velocity_y = 0;
             e2.acceleration_x = -0;
-            e2.acceleration_y = -0.0f; 
+            e2.acceleration_y = -0.0f;
             e2.velocity_x = 0;
             e2.velocity_y = 0;
             
