@@ -186,12 +186,12 @@ int main(int argc, char *argv[])
                 e1.position.y += pen.y;
                 e2.position.y -= pen.y;
             }
-            e1.acceleration_x = 0.5f;
-            e1.acceleration_y = 0.5f;
+            e1.acceleration_x = 0.0f;
+            e1.acceleration_y = 0.0f;
             e1.velocity_x = 0;
             e1.velocity_y = 0;
-            e2.acceleration_x = -2;
-            e2.acceleration_y = -0.5f;
+            e2.acceleration_x = -0;
+            e2.acceleration_y = -0.0f;
             e2.velocity_x = 0;
             e2.velocity_y = 0;
             
@@ -215,11 +215,11 @@ int main(int argc, char *argv[])
                 e1.position.y += pen.y;
                 e3.position.y -= pen.y;
             }
-            e1.acceleration_x = 0.5f;
-            e1.acceleration_y = 0.5f;
+            e1.acceleration_x = 0.0f;
+            e1.acceleration_y = 0.0f;
             e1.velocity_x = 0;
             e1.velocity_y = 0;
-            e3.acceleration_y =-2;
+            e3.acceleration_y =0;
             e3.velocity_y = 0;
         }
         if (s.checkSATCollision(e2WCoord, e3WCoord, pen)) {
@@ -241,11 +241,11 @@ int main(int argc, char *argv[])
                 e2.position.y += pen.y;
                 e3.position.y -= pen.y;
             }
-            e2.acceleration_x = -2;
-            e2.acceleration_y = -0.5;
+            e2.acceleration_x = 0;
+            e2.acceleration_y = 0;
             e2.velocity_x = 0;
             e2.velocity_y = 0;
-            e3.acceleration_y = -3;
+            e3.acceleration_y = 0;
             e3.velocity_y = 0;
         }
         

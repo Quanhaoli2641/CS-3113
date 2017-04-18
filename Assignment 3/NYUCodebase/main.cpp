@@ -13,6 +13,7 @@
 
 #include "entity.h"
 #include <vector>
+#include <SDL_mixer.h>
 
 #ifdef _WINDOWS
 #define RESOURCE_FOLDER ""
@@ -24,6 +25,8 @@ SDL_Window* displayWindow;
 
 enum GameState { STATE_MAIN_MENU, STATE_GAME_LEVEL};
 int state;
+Mix_Chunk* someSound = nullptr;
+Mix_Music* music = nullptr;
 
 using namespace std;
 
@@ -203,6 +206,9 @@ int enemyFire (float elapsed, vector<vector<Entity*>>& enemies, Entity** bullets
             if (n <= 0) continue;
             if (ran <= 10){
                 currBullet = shootBullet(bullets, currBullet, -0.3, -4.0f, enemies[n][i], modelMatrix, program);
+                
+                someSound = Mix_LoadWAV(RESOURCE_FOLDER"Enemy_Shoot.wav");
+                Mix_PlayChannel(-1, someSound, 0);
             }
         }
     return currBullet;
@@ -301,6 +307,12 @@ void updateGame (SDL_Event* event, ShaderProgram* program, Matrix& modelMatrix, 
     float amtTime = 0;
     int score = 0;
     
+    
+    Mix_Chunk *someSound = nullptr;
+    
+    music = Mix_LoadMUS(RESOURCE_FOLDER"My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3");
+    Mix_PlayMusic(music, -1);
+    
     while (!done) {
         while (SDL_PollEvent(event)) {
             if (event->type == SDL_QUIT || event->type == SDL_WINDOWEVENT_CLOSE) {
@@ -309,9 +321,10 @@ void updateGame (SDL_Event* event, ShaderProgram* program, Matrix& modelMatrix, 
             else if (event->type == SDL_KEYUP) {
                 if (p != nullptr && event->key.keysym.scancode == SDL_SCANCODE_SPACE) {
                     currBullet = shootBullet(bullets, currBullet, 0.3f, 2.0f, p, modelMatrix, program);
+                    someSound = Mix_LoadWAV(RESOURCE_FOLDER"Laser_Shoot.wav");
+                    Mix_PlayChannel(-1, someSound, 0);
                 }
             }
-            
         }
         
         float ticks = (float)SDL_GetTicks()/1000.0f;
@@ -478,6 +491,11 @@ void update (SDL_Event* event, ShaderProgram* program, Matrix& modelMatrix, Matr
             setUpGame(spriteSheetTexture, modelMatrix, program, p, bullets, enemies, &bullet, init_x,curr_y, gap);
             
             updateGame(event, program, modelMatrix, viewMatrix, projectionMatrix, done, p, bullets, enemies, lastFrameTicks, curr_y, init_y, fonts);
+            
+            /*Mix_Music *music;
+            music = Mix_LoadMUS(RESOURCE_FOLDER"My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3");
+            Mix_PlayMusic(music, -1);*/
+            
             break;
         }
             
@@ -503,6 +521,8 @@ int main(int argc, char *argv[])
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glViewport(0, 0, 640, 360);
+    
+    Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 4096 );
 
     ShaderProgram program(RESOURCE_FOLDER"vertex_textured.glsl", RESOURCE_FOLDER"fragment_textured.glsl");
     
@@ -516,6 +536,15 @@ int main(int argc, char *argv[])
     srand((unsigned int) time (NULL));
     
     update(&event, &program, modelMatrix, viewMatrix, projectionMatrix, done);
+    
+    if (someSound != nullptr) {
+        Mix_FreeChunk(someSound);
+        someSound = nullptr;
+    }
+    if (music != nullptr) {
+        Mix_FreeMusic(music);
+        music = nullptr;
+    }
     
     SDL_Quit();
     return 0;

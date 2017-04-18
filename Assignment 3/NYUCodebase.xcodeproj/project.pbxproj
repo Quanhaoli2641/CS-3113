@@ -23,6 +23,10 @@
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
 		B7144AB91E63524F00FC868C /* sheet.xml in Resources */ = {isa = PBXBuildFile; fileRef = B7144AB81E63524F00FC868C /* sheet.xml */; };
 		B74E4A461E68BB4300BFF43E /* pixel_font.png in Resources */ = {isa = PBXBuildFile; fileRef = B74E4A451E68BB4300BFF43E /* pixel_font.png */; };
+		B757DE321EA65BB0007AA329 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B757DE311EA65BB0007AA329 /* SDL2_mixer.framework */; };
+		B757DE341EA65EFD007AA329 /* Enemy_Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = B757DE331EA65EFD007AA329 /* Enemy_Shoot.wav */; };
+		B757DE361EA65F06007AA329 /* Laser_Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = B757DE351EA65F06007AA329 /* Laser_Shoot.wav */; };
+		B757DE3A1EA66508007AA329 /* My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B757DE391EA66508007AA329 /* My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3 */; };
 		B7CDE47A1E60F17C00865FEC /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7CDE4791E60F17C00865FEC /* SpriteSheet.cpp */; };
 		B7CDE4801E60FEF900865FEC /* sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CDE47F1E60FEF900865FEC /* sheet.png */; };
 /* End PBXBuildFile section */
@@ -53,6 +57,10 @@
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
 		B7144AB81E63524F00FC868C /* sheet.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sheet.xml; sourceTree = "<group>"; };
 		B74E4A451E68BB4300BFF43E /* pixel_font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel_font.png; sourceTree = "<group>"; };
+		B757DE311EA65BB0007AA329 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		B757DE331EA65EFD007AA329 /* Enemy_Shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Enemy_Shoot.wav; sourceTree = "<group>"; };
+		B757DE351EA65F06007AA329 /* Laser_Shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Laser_Shoot.wav; sourceTree = "<group>"; };
+		B757DE391EA66508007AA329 /* My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3"; sourceTree = "<group>"; };
 		B75B2B9C1E54EBDB00D01E4E /* entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
 		B7CDE4791E60F17C00865FEC /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
 		B7CDE47B1E60F18600865FEC /* SpriteSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
@@ -66,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5AC2D019AE6280004CB1BF /* OpenGL.framework in Frameworks */,
+				B757DE321EA65BB0007AA329 /* SDL2_mixer.framework in Frameworks */,
 				6D5A86AE19AE5C710066C1FD /* Cocoa.framework in Frameworks */,
 				6D5A86E319AE5CD10066C1FD /* SDL2.framework in Frameworks */,
 				6D5AC2D219AE6A1E004CB1BF /* SDL2_image.framework in Frameworks */,
@@ -96,6 +105,7 @@
 		6D5A86AC19AE5C710066C1FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B757DE311EA65BB0007AA329 /* SDL2_mixer.framework */,
 				6D5AC2D119AE6A1E004CB1BF /* SDL2_image.framework */,
 				6D5AC2CF19AE6280004CB1BF /* OpenGL.framework */,
 				6D5A86E219AE5CD10066C1FD /* SDL2.framework */,
@@ -155,6 +165,9 @@
 		6D5A86E119AE5CAA0066C1FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B757DE391EA66508007AA329 /* My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3 */,
+				B757DE351EA65F06007AA329 /* Laser_Shoot.wav */,
+				B757DE331EA65EFD007AA329 /* Enemy_Shoot.wav */,
 				B74E4A451E68BB4300BFF43E /* pixel_font.png */,
 				B7144AB81E63524F00FC868C /* sheet.xml */,
 				B7CDE47F1E60FEF900865FEC /* sheet.png */,
@@ -229,6 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
+				B757DE341EA65EFD007AA329 /* Enemy_Shoot.wav in Resources */,
+				B757DE361EA65F06007AA329 /* Laser_Shoot.wav in Resources */,
+				B757DE3A1EA66508007AA329 /* My Heart Will Go On - Recorder By Candlelight by Matt Mulholland.mp3 in Resources */,
 				B7144AB91E63524F00FC868C /* sheet.xml in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
@@ -317,6 +333,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -371,6 +389,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Library/Frameworks/SDL2_image.framework/Versions/A/Headers,
 					/Library/Frameworks/SDL2.framework/Versions/A/Headers,
+					/Library/Frameworks/SDL2_mixer.framework/Versions/A/Headers,
 				);
 				INFOPLIST_FILE = "NYUCodebase/NYUCodebase-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
