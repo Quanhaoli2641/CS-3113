@@ -328,7 +328,7 @@ void updateGame (SDL_Event* event, ShaderProgram* program, Matrix& modelMatrix, 
         }
         
         float ticks = (float)SDL_GetTicks()/1000.0f;
-        float elapsed = ticks - lastFrameTicks;
+        float elapsed = ticks - lastFrameTicks; 
         lastFrameTicks = ticks;
         
         glClear(GL_COLOR_BUFFER_BIT);
