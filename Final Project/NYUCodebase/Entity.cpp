@@ -8,15 +8,19 @@
 
 #include <stdio.h>
 #include "Entity.h"
+#include <math.h>
 
 
 float lerp(float v0, float v1, float t) {
     return (1.0-t)*v0 + t*v1;
 }
 
-void Entity::Render(ShaderProgram *p, Matrix& m) {
+void Entity::Render(ShaderProgram *p, Matrix& m, float bounceVal) {
     m.identity();
     m.Translate(this->position.x, this->position.y, 0);
+    if (entityType == ENTITY_ENEMY) {
+        m.Scale(fabs(0.25*sin(bounceVal*4)) + 0.75, fabs(0.25*sin(bounceVal*4)) + 0.75, 1);
+    }
     
     if(name == "player1") m.Scale(1, 2, 1);
     if(name == "player2") m.Scale(1, 2, 1);

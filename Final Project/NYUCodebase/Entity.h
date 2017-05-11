@@ -22,7 +22,7 @@ public:
     
     Entity():state(0), friction(Vector(15.0f,15.0f)) {}
     void Update(float elapsed);
-    void Render(ShaderProgram *program, Matrix& modelMatrix);
+    void Render(ShaderProgram *program, Matrix& modelMatrix, float bounceVal = 0);
     bool collidesWith(Entity *entity);
     void handleCollision(Entity *entity);
     void DrawSpriteSheetSprite(ShaderProgram *program, int index, int spriteCountX,

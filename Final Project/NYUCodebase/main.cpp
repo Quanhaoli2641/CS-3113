@@ -504,7 +504,7 @@ int main(int argc, char *argv[])
     
     projectionMatrix.setOrthoProjection(-3.55f, 3.55f, -2.0f, 2.0f, -1.0f, 1.0f);
     
-    float lastFrameTicks(0.0f), animationElapsed (0.0f), enemyTimer (0), red(0), green(0), blue(0), time_counter(0), currTime(0), planeMoveConst (0), spawnRate(0);
+    float lastFrameTicks(0.0f), animationElapsed (0.0f), enemyTimer (0), red(0), green(0), blue(0), time_counter(0), currTime(0), planeMoveConst (0), spawnRate(0), shipBobbleValue (0);
     bool p1u(false), p1d(true), p1l(false), p1r(false), p2u(false), p2d(true), p2r(false), p2l(false), start(false);
     int numEnemies (500);
     string text(" ");
@@ -1056,6 +1056,7 @@ int main(int argc, char *argv[])
                 }
             }
         }
+        shipBobbleValue += elapsed;
         
         for (int i = 0; i < enemies.size(); i++) {
             if(enemies[i]->position.x != 500 && enemies[i]->position.y != 500){
@@ -1078,7 +1079,7 @@ int main(int argc, char *argv[])
             }
             if (player1 != nullptr && player2 != nullptr) {
                 enemies[i]->Update(FIXED_TIMESTEP);
-                enemies[i]->Render(&program, modelMatrix);
+                enemies[i]->Render(&program, modelMatrix, shipBobbleValue);
             }
             if(player1 != nullptr && player1->collidesWith(enemies[i])){
                 Mix_Chunk* spaceShipExplode = Mix_LoadWAV(RESOURCE_FOLDER"SpaceShipExplode.wav");
