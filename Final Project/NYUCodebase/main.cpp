@@ -752,20 +752,33 @@ int main(int argc, char *argv[])
             red = 0.0;
             green = 0.0;
             blue = 0.0;
-            modelMatrix.identity();
-            modelMatrix.Translate(-0.5, 0.4, 0);
-            modelMatrix.Scale(0.5, 0.5, 1);
-            program.setModelMatrix(modelMatrix);
-            DrawText(&program, font, "Welcome!", 0.3, 0);
             
             modelMatrix.identity();
-            modelMatrix.Translate(-0.45, -0.1, 0);
+            modelMatrix.Translate(-0.7, 0.5, 0);
+            modelMatrix.Scale(0.25, 0.25, 1);
+            program.setModelMatrix(modelMatrix);
+            DrawText(&program, font, "THE GRAND ADVENTURES", 0.3, 0);
+            
+            modelMatrix.identity();
+            modelMatrix.Translate(-0.05, 0.25, 0);
+            modelMatrix.Scale(0.2, 0.2, 1);
+            program.setModelMatrix(modelMatrix);
+            DrawText(&program, font, "of", 0.3, 0);
+            
+            modelMatrix.identity();
+            modelMatrix.Translate(-0.5, 0, 0);
+            modelMatrix.Scale(0.25, 0.25, 1);
+            program.setModelMatrix(modelMatrix);
+            DrawText(&program, font, "GEORGE & BETTY", 0.3, 0);
+            
+            modelMatrix.identity();
+            modelMatrix.Translate(-0.45, -0.3, 0);
             modelMatrix.Scale(0.15, 0.15, 1);
             program.setModelMatrix(modelMatrix);
             DrawText(&program, font, "Press [ENTER] to play!", 0.3, 0);
             
             modelMatrix.identity();
-            modelMatrix.Translate(-0.6, -0.3, 0);
+            modelMatrix.Translate(-0.6, -0.5, 0);
             modelMatrix.Scale(0.15, 0.15, 1);
             program.setModelMatrix(modelMatrix);
             DrawText(&program, font, "Press [ESC] to exit the game!", 0.3, 0);
